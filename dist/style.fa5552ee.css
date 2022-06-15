@@ -1,0 +1,285 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+*::before,*::after{
+    box-sizing: border-box;
+}
+
+body{
+    background: rgb(255,203,0);
+}
+
+
+/* 鼻子start */
+.nose-circle{
+    width: 16px;
+    height: 8px;
+    background: #000;
+    position: absolute;
+    border-radius: 8px 8px 0px 0px;
+    left: -8px;
+    top:-16px;
+}
+.nose-triangle{
+    /* border: 1px solid red; */
+    border-left:8px solid transparent;
+    border-right:8px solid transparent;
+    border-top: 8px solid #000;
+    border-bottom: 0px solid transparent;
+    width: 0px;
+    height: 0px;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+}
+.nose{
+    position: absolute;
+    left: 50%;
+    top: 200px;
+    transform: translateX(-50%) rotate(0deg);
+    transform-origin:50% 100%;
+    z-index: 2;
+}
+.nose:hover{
+    animation:shake .4s infinite;
+    
+}
+@keyframes shake{
+    0%{
+        transform:translateX(-50%) rotate(0deg);
+    }
+    25%{
+        transform:translateX(-50%) rotate(-10deg);
+    }
+    50%{
+        transform:translateX(-50%) rotate(0deg);
+    }
+    75%{
+        transform:translateX(-50%) rotate(10deg);
+    }
+    100%{
+        transform:translateX(-50%) rotate(0deg);
+    }
+}
+/* 鼻子end */
+
+/* 眼睛start */
+.eye{
+    background: #2e2e2e;
+    width: 60px;
+    height: 60px;
+    border: 3px solid #000;
+    border-radius: 50%;
+    position: absolute;
+    left: 50%;
+    top: 160px;
+    transform: translateX(-50%);
+}
+.eye-left{
+    margin-left: -100px;
+}  
+.eye-right{
+    margin-left: 100px;
+}
+.eye::before{
+    content:'';
+    display: block;
+    width: 30px;
+    height: 30px;
+    background: #fff;
+    border: 3px solid #000;
+    border-radius: 50%;
+    position: relative;
+    left: 5px;
+    top: 2px;
+    animation: waggle 1.6s infinite;
+}
+@keyframes waggle{
+    0%{
+        left: 5px;
+        top: 2px;
+    }
+    25%{
+        left: 4px;
+        top: 12px;
+    }
+    50%{
+        left: 15px;
+        top: 2px;
+    }
+    100%{
+        left:5px;
+        top: 2px;
+    }
+}
+/* 眼睛end */
+
+/* 嘴start */
+.mouth{
+    width: 200px;
+    height: 200px;
+    position: relative;
+    left: 50%;
+    top: 220px;
+    transform: translateX(-50%);
+    position: absolute;
+}
+.mouth .mouth-top .lip-left{
+    border: 3px solid #000;
+    width: 100px;
+    height: 30px;
+    background: rgb(255,203,0);
+    border-bottom-left-radius: 50px 30px;
+    border-top-color: transparent;
+    transform: rotate(-25deg);
+    position: absolute;
+    left: -1px;
+    z-index: 1;
+}
+.mouth .mouth-top .lip-left::after{
+    content:'';
+    display: block;
+    background: rgb(255,203,0);
+    width: 5px;
+    height: 30px;
+    border-bottom: 3px solid #000;
+    position: absolute;
+    margin-right: -4px;
+    top:-3px;
+    right: 0;
+}
+.mouth .mouth-top .lip-left::before{
+    content:'';
+    display: block;
+    background: green;
+    background: rgb(255,203,0);
+    width: 100px;
+    height: 8px;
+    position: absolute;
+    top: -8px;
+}
+.mouth .mouth-top .lip-right{
+    border: 3px solid #000;
+    width: 100px;
+    height: 30px;
+    background: rgb(255,203,0);
+    border-bottom-right-radius: 50px 30px;
+    border-top-color: transparent;
+    position: absolute;
+    transform: rotate(25deg);
+    right: -1px;
+    z-index: 1;
+}
+.mouth .mouth-top .lip-right::before{
+    content:'';
+    display: block;
+    /* background: green; */
+    background: rgb(255,203,0);
+    width: 100px;
+    height: 8px;
+    position: absolute;
+    top: -8px;
+    right: 0;
+}
+.mouth .mouth-top .lip-right::after{
+    content:'';
+    display: block;
+    background: rgb(255,203,0);
+    border-bottom: 3px solid #000;
+    width: 5px;
+    height: 30px;
+    position: absolute;
+    margin-left: -4px;
+    top: -3px;
+}
+.mouth .mouth-bottom{
+    border: 3px solid #000;
+    width: 160px;
+    height: 200px;
+    background: #9b000a;
+    z-index: 0;
+    border-bottom-left-radius: 80px 200px;
+    border-bottom-right-radius: 80px 200px;
+    border-top: transparent;
+    position: absolute;
+    left: 50%;
+    top: 8px;
+    overflow: hidden;
+    transform: translateX(-50%);
+    animation: on-off 1.8s ease-in infinite;
+}
+
+/* .mouth:hover .mouth-bottom{
+    
+} */
+
+@keyframes on-off{
+    0%{
+        height: 200px;
+        border-bottom-left-radius: 80px 200px;
+        border-bottom-right-radius: 80px 200px;
+    }
+    50%{
+        height: 0px;
+        border-bottom-left-radius: 80px 0;
+        border-bottom-right-radius: 80px 0;
+    }
+    100%{
+        height: 200px;
+        border-bottom-left-radius: 80px 200px;
+        border-bottom-right-radius: 80px 200px;
+    }
+}
+.mouth .mouth-bottom::after{
+    content: '';
+    display: block;
+    width: 20px;
+    height: 20px;
+    background: #FF485F;
+    position: absolute;
+    top: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 160px;
+    height: 160px;
+    border-top-left-radius: 80px;
+    border-top-right-radius: 80px;
+}
+/* 嘴end */
+
+/* 脸颊start */
+.cheek{
+    width: 85px;
+    height: 85px;
+    background: #F00;
+    border: 3px solid #000;
+    border-radius: 50%;
+    position: absolute;
+    top: 270px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.cheek-left{
+    margin-left: -150px;
+}
+
+.cheek-left img{
+    transform:rotateY(180deg);
+    position: absolute;
+    right: 40px;
+    top: 40px;
+    width: 200px;
+}
+.cheek-right{
+    margin-left: 150px;
+}
+.cheek-right img{
+    position: absolute;
+    left: 40px;
+    top: 40px;
+    width: 200px;
+}
+/* 脸颊end */
